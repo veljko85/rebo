@@ -87,7 +87,7 @@ let addNewFenceToSide = document.getElementById("addNewFenceToSide");
 // }
 // openFenceSlider.onclick = () => {
 //   if (!fenceSliderOpen) {
-//     openFenceSlider.style.color = "#3967ff";
+//     openFenceSlider.style.color = "#faa41a";
 //     openFenceSlider.children[2].innerHTML = "-";
 //     fenceSliderSection.style.display = "block";
 //     fenceSliderOpen = true;
@@ -1925,7 +1925,7 @@ var createScene = function () {
       }
     }
     if (activeArrowSide == 5) {
-      sturmankersVorderseite.isVisible = true;
+      sturmankersVorderseite[0].isVisible = true;
       foundationVisibilty(
         foundationStarts,
         foundations,
@@ -1940,7 +1940,7 @@ var createScene = function () {
       );
     }
     if (activeArrowSide == 6) {
-      sturmankersRuckseite.isVisible = true;
+      sturmankersRuckseite[0].isVisible = true;
       foundationVisibilty(
         foundationStarts,
         foundations,
@@ -2023,8 +2023,8 @@ var createScene = function () {
     }
     if (activeArrowSide == 5) {
       if (
-        !sturmankersVorderseite.isVisible &&
-        !sturmankersRuckseite.isVisible
+        !sturmankersVorderseite[0].isVisible &&
+        !sturmankersRuckseite[0].isVisible
       ) {
         addSturmanker.style.display = "flex";
       } else {
@@ -2033,8 +2033,8 @@ var createScene = function () {
     }
     if (activeArrowSide == 6) {
       if (
-        !sturmankersVorderseite.isVisible &&
-        !sturmankersRuckseite.isVisible
+        !sturmankersVorderseite[0].isVisible &&
+        !sturmankersRuckseite[0].isVisible
       ) {
         addSturmanker.style.display = "flex";
       } else {
@@ -2103,6 +2103,8 @@ var createScene = function () {
               addFenceSings
             );
             rightPosts[i].material = selectedMat;
+            document.getElementsByClassName("accTitle")[0].innerHTML =
+              "einen Artikel hinzufügen";
           }
         )
       );
@@ -2156,6 +2158,8 @@ var createScene = function () {
               addFenceSings
             );
             rightPosts[i].material = selectedMat;
+            document.getElementsByClassName("accTitle")[0].innerHTML =
+              "einen Artikel hinzufügen";
           }
         )
       );
@@ -2209,6 +2213,8 @@ var createScene = function () {
               addFenceSings
             );
             rightPosts[i].material = selectedMat;
+            document.getElementsByClassName("accTitle")[0].innerHTML =
+              "einen Artikel hinzufügen";
           }
         )
       );
@@ -2262,6 +2268,8 @@ var createScene = function () {
               addFenceSings
             );
             rightPosts[i].material = selectedMat;
+            document.getElementsByClassName("accTitle")[0].innerHTML =
+              "einen Artikel hinzufügen";
           }
         )
       );
@@ -2324,6 +2332,8 @@ var createScene = function () {
           addNewFenceMeshLeftMain.isVisible = true;
 
           leftPosts[0].material = selectedMat;
+          document.getElementsByClassName("accTitle")[0].innerHTML =
+            "einen Artikel hinzufügen";
         }
       )
     );
@@ -2372,6 +2382,8 @@ var createScene = function () {
           addNewFenceMeshLeftMain.isVisible = true;
 
           leftPosts[0].material = selectedMat;
+          document.getElementsByClassName("accTitle")[0].innerHTML =
+            "einen Artikel hinzufügen";
         }
       )
     );
@@ -2499,13 +2511,13 @@ var createScene = function () {
 
   //2 SET PFOSTEN
   let holzType = document.getElementById("holzType");
-  holzType.style.color = "#3967ff";
+  holzType.style.color = "#faa41a";
   let aluType = document.getElementById("aluType");
   let pfostenSecPart = document.getElementById("pfostenSecPart");
   let postType = 0;
 
   function setPhostenAct(a, b) {
-    a.style.color = "#3967ff";
+    a.style.color = "#faa41a";
     b.style.color = "#000000";
     a.children[1].innerHTML = checkMark;
     b.children[1].innerHTML = "";
@@ -3327,6 +3339,7 @@ var createScene = function () {
       linkParts.push(prodIds[i] + ":" + prodValues[i] + ",");
     }
     linkParts = linkParts.join("");
+    linkParts = linkParts.slice(0, -1);
     link.href += "?add-to-cart=" + linkParts;
   };
 
